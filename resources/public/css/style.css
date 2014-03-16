@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+}
+
+#teletype {
+    display: flex;
+    flex-direction: row;
+}
+
+.visible {
+    display: block;
+}
+
+.invisible {
+    display: none;
+}
+
+#left-column {
+    flex: 1;
+    border-right: 1px solid #f7f7f7;
+}
+
+#right-column {
+    flex: 1;
+    border-left: 1px solid #f7f7f7;
+}
+
+#preview {
+    overflow: auto;
+}
+
+#markdown {
+    overflow: auto;
+    height: 100px;
+}
+
+#left-column #markdown, #right-column #html {
+    display: block;
+    width: 100%;
+    resize: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    tab-size: 4;
+}
+
+#left-column #markdown:focus, #right-column #html:focus {
+    outline: none;
+}
+
+
+#html {
+    display: none;
+}

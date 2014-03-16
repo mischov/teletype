@@ -1,0 +1,25 @@
+
+/media/UbuntuHDD/proj/teletype/.gitignore,0
+
+/media/UbuntuHDD/proj/teletype/LICENSE,464
+LICENSE ("AGREEMENT"). ANY USE,2,76
+a) in the case of the initial Contributor,9,246
+documentation distributed under this Agreement,10,310
+i) changes to the Program,14,411
+ii) additions to the Program;16,443
+conditions,83,3772
+conditions, express and implied,83,3772
+and non-infringement,infringement84,3849
+by that Contributor alone and not by any other party;92,4223
+Each Contributor must identify itself as the originator of its Contribution,107,4768
+
+/media/UbuntuHDD/proj/teletype/README.md,120
+A Clojure library designed to ... well,3,12
+Distributed under the Eclipse Public License either version 1.0 or 13,131
+
+/media/UbuntuHDD/proj/teletype/doc/intro.md,0
+
+/media/UbuntuHDD/proj/teletype/project.clj,24
+(defproject teletype1,1
+
+/media/UbuntuHDD/proj/teletype/project.clj,0
