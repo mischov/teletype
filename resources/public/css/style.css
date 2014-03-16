@@ -34,7 +34,7 @@
     height: 100px;
 }
 
-#left-column #markdown, #right-column #html {
+#left-column #markdown {
     display: block;
     width: 100%;
     resize: none;
@@ -44,11 +44,6 @@
     tab-size: 4;
 }
 
-#left-column #markdown:focus, #right-column #html:focus {
+#left-column #markdown:focus {
     outline: none;
-}
-
-
-#html {
-    display: none;
 }
