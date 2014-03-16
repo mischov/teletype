@@ -24322,6 +24322,150 @@ cljs.core.special_symbol_QMARK_ = function special_symbol_QMARK_(x) {
   "recur", "recur", -1532142362, null), null, new cljs.core.Symbol(null, ".", ".", -1640531481, null), null, new cljs.core.Symbol(null, "ns", "ns", -1640528002, null), null, new cljs.core.Symbol(null, "do", "do", -1640528316, null), null, new cljs.core.Symbol(null, "fn*", "fn*", -1640430053, null), null, new cljs.core.Symbol(null, "throw", "throw", -1530191713, null), null, new cljs.core.Symbol(null, "letfn*", "letfn*", 1548249632, null), null, new cljs.core.Symbol(null, "js*", "js*", -1640426054, 
   null), null, new cljs.core.Symbol(null, "defrecord*", "defrecord*", 774272013, null), null, new cljs.core.Symbol(null, "let*", "let*", -1637213400, null), null, new cljs.core.Symbol(null, "loop*", "loop*", -1537374273, null), null, new cljs.core.Symbol(null, "try", "try", -1640416396, null), null, new cljs.core.Symbol(null, "if", "if", -1640528170, null), null, new cljs.core.Symbol(null, "def", "def", -1640432194, null), null], null), null), x);
 };
+goog.provide("teletype.autosave");
+goog.require("cljs.core");
+teletype.autosave.set_timeout = function set_timeout(timeout, f) {
+  return setTimeout(f, timeout);
+};
+teletype.autosave.clear_timeout = function clear_timeout(d) {
+  return clearTimeout(d);
+};
+teletype.autosave.save = function save(last_timeout, timeout, f) {
+  var timeout_id = teletype.autosave.set_timeout.call(null, timeout, f);
+  if (cljs.core.truth_(cljs.core.deref.call(null, last_timeout))) {
+    teletype.autosave.clear_timeout.call(null, cljs.core.deref.call(null, last_timeout));
+  } else {
+  }
+  return cljs.core.reset_BANG_.call(null, last_timeout, timeout_id);
+};
+goog.provide("teletype.store");
+goog.require("cljs.core");
+teletype.store.TStore = function() {
+  var obj5224 = {};
+  return obj5224;
+}();
+teletype.store.read_md = function read_md(this$) {
+  if (function() {
+    var and__3391__auto__ = this$;
+    if (and__3391__auto__) {
+      return this$.teletype$store$TStore$read_md$arity$1;
+    } else {
+      return and__3391__auto__;
+    }
+  }()) {
+    return this$.teletype$store$TStore$read_md$arity$1(this$);
+  } else {
+    var x__4030__auto__ = this$ == null ? null : this$;
+    return function() {
+      var or__3403__auto__ = teletype.store.read_md[goog.typeOf(x__4030__auto__)];
+      if (or__3403__auto__) {
+        return or__3403__auto__;
+      } else {
+        var or__3403__auto____$1 = teletype.store.read_md["_"];
+        if (or__3403__auto____$1) {
+          return or__3403__auto____$1;
+        } else {
+          throw cljs.core.missing_protocol.call(null, "TStore.read-md", this$);
+        }
+      }
+    }().call(null, this$);
+  }
+};
+teletype.store.write_md = function write_md(this$, markdown) {
+  if (function() {
+    var and__3391__auto__ = this$;
+    if (and__3391__auto__) {
+      return this$.teletype$store$TStore$write_md$arity$2;
+    } else {
+      return and__3391__auto__;
+    }
+  }()) {
+    return this$.teletype$store$TStore$write_md$arity$2(this$, markdown);
+  } else {
+    var x__4030__auto__ = this$ == null ? null : this$;
+    return function() {
+      var or__3403__auto__ = teletype.store.write_md[goog.typeOf(x__4030__auto__)];
+      if (or__3403__auto__) {
+        return or__3403__auto__;
+      } else {
+        var or__3403__auto____$1 = teletype.store.write_md["_"];
+        if (or__3403__auto____$1) {
+          return or__3403__auto____$1;
+        } else {
+          throw cljs.core.missing_protocol.call(null, "TStore.write-md", this$);
+        }
+      }
+    }().call(null, this$, markdown);
+  }
+};
+teletype.store.delete_md = function delete_md(this$) {
+  if (function() {
+    var and__3391__auto__ = this$;
+    if (and__3391__auto__) {
+      return this$.teletype$store$TStore$delete_md$arity$1;
+    } else {
+      return and__3391__auto__;
+    }
+  }()) {
+    return this$.teletype$store$TStore$delete_md$arity$1(this$);
+  } else {
+    var x__4030__auto__ = this$ == null ? null : this$;
+    return function() {
+      var or__3403__auto__ = teletype.store.delete_md[goog.typeOf(x__4030__auto__)];
+      if (or__3403__auto__) {
+        return or__3403__auto__;
+      } else {
+        var or__3403__auto____$1 = teletype.store.delete_md["_"];
+        if (or__3403__auto____$1) {
+          return or__3403__auto____$1;
+        } else {
+          throw cljs.core.missing_protocol.call(null, "TStore.delete-md", this$);
+        }
+      }
+    }().call(null, this$);
+  }
+};
+goog.provide("teletype.store.localstore");
+goog.require("cljs.core");
+goog.require("teletype.store");
+goog.require("teletype.store");
+teletype.store.localstore.LocalTStore = function(store, key) {
+  this.store = store;
+  this.key = key;
+};
+teletype.store.localstore.LocalTStore.cljs$lang$type = true;
+teletype.store.localstore.LocalTStore.cljs$lang$ctorStr = "teletype.store.localstore/LocalTStore";
+teletype.store.localstore.LocalTStore.cljs$lang$ctorPrWriter = function(this__3970__auto__, writer__3971__auto__, opt__3972__auto__) {
+  return cljs.core._write.call(null, writer__3971__auto__, "teletype.store.localstore/LocalTStore");
+};
+teletype.store.localstore.LocalTStore.prototype.teletype$store$TStore$ = true;
+teletype.store.localstore.LocalTStore.prototype.teletype$store$TStore$read_md$arity$1 = function(this$) {
+  var self__ = this;
+  var this$__$1 = this;
+  var temp__4092__auto__ = self__.store.getItem(self__.key);
+  if (cljs.core.truth_(temp__4092__auto__)) {
+    var md = temp__4092__auto__;
+    return md;
+  } else {
+    return null;
+  }
+};
+teletype.store.localstore.LocalTStore.prototype.teletype$store$TStore$write_md$arity$2 = function(this$, md) {
+  var self__ = this;
+  var this$__$1 = this;
+  return self__.store.setItem(self__.key, md);
+};
+teletype.store.localstore.LocalTStore.prototype.teletype$store$TStore$delete_md$arity$1 = function(this$) {
+  var self__ = this;
+  var this$__$1 = this;
+  return self__.store.removeItem(self__.key);
+};
+teletype.store.localstore.__GT_LocalTStore = function __GT_LocalTStore(store, key) {
+  return new teletype.store.localstore.LocalTStore(store, key);
+};
+teletype.store.localstore.create_store = function create_store(key) {
+  return new teletype.store.localstore.LocalTStore(localStorage, key);
+};
 goog.provide("clojure.string");
 goog.require("cljs.core");
 goog.require("goog.string.StringBuffer");
@@ -27098,51 +27242,78 @@ dommy.core.fire_BANG_ = function() {
   fire_BANG_.cljs$core$IFn$_invoke$arity$variadic = fire_BANG___delegate;
   return fire_BANG_;
 }();
-goog.provide("teletype.core");
+goog.provide("teletype.dommy");
 goog.require("cljs.core");
+goog.require("teletype.autosave");
+goog.require("teletype.autosave");
+goog.require("teletype.store.localstore");
+goog.require("teletype.store.localstore");
+goog.require("teletype.store");
+goog.require("teletype.store");
 goog.require("dommy.core");
 goog.require("dommy.core");
-teletype.core.to_html = marked;
-teletype.core.window_height = function window_height() {
+teletype.dommy.to_html = marked;
+teletype.dommy.window_height = function window_height() {
   return window.innerHeight;
 };
-teletype.core.client_height = function client_height() {
+teletype.dommy.client_height = function client_height() {
   return document.documentElement.clientHeight;
 };
-teletype.core.set_full_height = function set_full_height(elem) {
+teletype.dommy.set_full_height = function set_full_height(elem) {
   var h = function() {
-    var or__3403__auto__ = teletype.core.window_height.call(null);
+    var or__3403__auto__ = teletype.dommy.window_height.call(null);
     if (cljs.core.truth_(or__3403__auto__)) {
       return or__3403__auto__;
     } else {
-      return teletype.core.client_height.call(null);
+      return teletype.dommy.client_height.call(null);
     }
   }();
   return dommy.core.set_style_BANG_.call(null, elem, new cljs.core.Keyword(null, "height", "height", 4087841945), [cljs.core.str(h - 25), cljs.core.str("px")].join(""));
 };
-teletype.core.sync = function sync(e1, e2) {
+teletype.dommy.sync = function sync(e1, e2) {
   var e1_scrollheight = e1.scrollHeight;
   var e2_scrollheight = e2.scrollHeight;
-  var ratio = (teletype.core.client_height.call(null) - e1_scrollheight) / (teletype.core.client_height.call(null) - e2_scrollheight);
+  var ratio = (teletype.dommy.client_height.call(null) - e1_scrollheight) / (teletype.dommy.client_height.call(null) - e2_scrollheight);
   var scrolltop = e1.scrollTop / ratio;
   return e2.scrollTop = scrolltop;
 };
-teletype.core.preview_md = function preview_md() {
-  var markdown = document.getElementById("markdown");
+teletype.dommy.update_preview = function update_preview(markdown) {
   var preview = document.getElementById("preview");
-  var md = dommy.core.value.call(null, markdown);
-  var content = teletype.core.to_html.call(null, md);
-  return dommy.core.set_html_BANG_.call(null, preview, content);
+  var html = teletype.dommy.to_html.call(null, markdown);
+  return dommy.core.set_html_BANG_.call(null, preview, html);
 };
-teletype.core.init = function init() {
-  var markdown = document.getElementById("markdown");
-  var preview = document.getElementById("preview");
-  teletype.core.preview_md.call(null);
-  teletype.core.set_full_height.call(null, markdown);
-  teletype.core.set_full_height.call(null, preview);
-  dommy.core.listen_BANG_.call(null, markdown, new cljs.core.Keyword(null, "keyup", "keyup", 1115849900), teletype.core.preview_md);
-  return dommy.core.listen_BANG_.call(null, markdown, new cljs.core.Keyword(null, "scroll", "scroll", 4401191487), function() {
-    return teletype.core.sync.call(null, markdown, preview);
+teletype.dommy.save_markdown = function save_markdown(state, store, markdown) {
+  return teletype.autosave.save.call(null, state, 1E3, function() {
+    return teletype.store.write_md.call(null, store, markdown);
   });
 };
-teletype.core.init.call(null);
+teletype.dommy.process_markdown = function process_markdown(state, store) {
+  var markdown_elem = document.getElementById("markdown");
+  var markdown = dommy.core.value.call(null, markdown_elem);
+  teletype.dommy.update_preview.call(null, markdown);
+  return teletype.dommy.save_markdown.call(null, state, store, markdown);
+};
+teletype.dommy.init = function init() {
+  var markdown = document.getElementById("markdown");
+  var preview = document.getElementById("preview");
+  var state = cljs.core.atom.call(null, null);
+  var store = teletype.store.localstore.create_store.call(null, "test");
+  var saved_md = teletype.store.read_md.call(null, store);
+  if (cljs.core.truth_(saved_md)) {
+    dommy.core.set_value_BANG_.call(null, markdown, saved_md);
+  } else {
+  }
+  teletype.dommy.process_markdown.call(null, state, store);
+  teletype.dommy.set_full_height.call(null, markdown);
+  teletype.dommy.set_full_height.call(null, preview);
+  return dommy.core.listen_BANG_.call(null, markdown, new cljs.core.Keyword(null, "keyup", "keyup", 1115849900), function() {
+    return teletype.dommy.process_markdown.call(null, state, store);
+  }, new cljs.core.Keyword(null, "scroll", "scroll", 4401191487), function() {
+    return teletype.dommy.sync.call(null, markdown, preview);
+  });
+};
+goog.provide("teletype.core");
+goog.require("cljs.core");
+goog.require("teletype.dommy");
+goog.require("teletype.dommy");
+teletype.dommy.init.call(null);
