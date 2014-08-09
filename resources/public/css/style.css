@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-#teletype {
+#container {
     display: flex;
     flex-direction: row;
 }
